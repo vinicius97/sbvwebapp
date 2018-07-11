@@ -4,15 +4,22 @@ import { uploadVideo } from '../../Services/API'
 export class Uploader extends Component{
 
   state = {
-    file: null
+    file: null,
+    title: 'default'
   }
 
   handleOnFormSubmit = (e) => {
     e.preventDefault()
-    this.handleUpload(this.state.file)
+
+    const { file, title } = this.state
+    this.handleUpload(file, title)
   }
 
-  handleOnChange = (e) => {
+  handleOnChangeTitle = (e) => {
+    this.setState({title: e.target.value})
+  }
+
+  handleOnChangeFile = (e) => {
     this.setState({file: e.target.files[0]})
   }
 
@@ -24,10 +31,16 @@ export class Uploader extends Component{
     return (
       <form className={`uploader--form`} onSubmit={this.handleOnFormSubmit}>
         <input
+          type='text'
+          name='title'
+          onKeyUp={this.handleOnChangeTitle}
+          placeholder='Título do vídeo'/>
+
+        <input
           className={`uploader--form__input`}
           type='file'
-          name={`video`}
-          onChange={this.handleOnChange} />
+          name='video'
+          onChange={this.handleOnChangeFile} />
 
         <button
           className={`uploader--form__button`}
