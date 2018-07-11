@@ -19,3 +19,17 @@ export const uploadVideo = async (file, title) => {
     console.log(e)
   }
 }
+
+export const listVideos = async (file, title) => {
+  try {
+    return await axios.get(`${ENDPOINT}/video/list`)
+      .then(function (response) {
+        return response.data
+      })
+      .catch(function (e) {
+        console.log(e);
+      })
+  } catch (e) {
+    console.log(e)
+  }
+}
