@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Uploader } from '../../Components/Uploader'
+import Uploader from '../../Components/Uploader'
 import { listVideos } from '../../Services/API'
 
 import './index.scss'

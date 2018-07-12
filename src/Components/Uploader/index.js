@@ -1,15 +1,20 @@
 import React, { Component } from 'react'
-import { uploadVideo } from '../../Services/API'
+import { connect } from 'react-redux'
 
 import './index.scss'
 
 export class Uploader extends Component{
 
+  static defaultProps = {
+    upload: {
+      status: ''
+    }
+  }
+
   state = {
     error: '',
     file: null,
     title: null,
-    uploadStatus: ''
   }
 
   handleOnFormSubmit = (e) => {
@@ -37,15 +42,13 @@ export class Uploader extends Component{
   }
 
   handleUpload = async (file) => {
-    this.setState({uploadStatus: 'Enviando'})
-    const response = await uploadVideo(file)
-    this.setState({uploadStatus: response.data})
+    this.props.uploadFile(file)
   }
 
   render() {
     return (
       <form className={`uploader--form`} onSubmit={this.handleOnFormSubmit}>
-        {this.state.uploadStatus}
+        {this.props.upload.status}
         {this.state.error}
         <input
           type='text'
@@ -69,3 +72,15 @@ export class Uploader extends Component{
     )
   }
 }
+
+const mapState = state => ({
+  upload: {
+    status: state.upload.status
+  }
+})
+
+const mapDispatch = ({ upload: { uploadFile }}) => ({
+  uploadFile
+})
+
+export default connect(mapState, mapDispatch)(Uploader)
