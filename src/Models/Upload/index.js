@@ -1,4 +1,5 @@
 import { encodeVideo, uploadVideo } from '../../Services/API'
+import { subscribeToUploadStatus } from '../../Services/Sockets'
 
 const initState = {
   status: [],
@@ -14,14 +15,13 @@ export const upload = {
   effects: (dispatch) => ({
     async uploadFile (payload, rootState) {
       try {
+
         this.setStatus('Enviando')
+        subscribeToUploadStatus((status) => this.setStatus(status))
+
         const uploadResult = await uploadVideo(payload)
         const fileInfo = uploadResult.data
-
-        this.setStatus(fileInfo ? 'Encodando' : 'Falha ao enviar vídeo')
-        const encodeResult = await encodeVideo(fileInfo)
-
-        this.setStatus(encodeResult ? 'Finalizado' : 'Falha ao converter vídeo')
+        await encodeVideo(fileInfo)
 
       } catch (e) {
         this.setStatus('Falha')

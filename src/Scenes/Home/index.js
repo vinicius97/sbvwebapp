@@ -24,12 +24,14 @@ export class Home extends Component{
     return(
       <div>
         <h1>Video Upload</h1>
+        <Uploader />
+
         {list.map((item, index) => (
           <div key={index}>
             {item.title}
+            {item.url}
           </div>
         ))}
-        <Uploader />
       </div>
     )
   }
