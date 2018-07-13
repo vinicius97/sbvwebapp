@@ -41,15 +41,15 @@ export class Uploader extends Component{
     this.setState({file: e.target.files[0]})
   }
 
-  handleUpload = async (file) => {
-    this.props.uploadFile(file)
+  handleUpload = async (file, title) => {
+    this.props.uploadFile({file, title})
   }
 
   render() {
     return (
       <form className={`uploader--form`} onSubmit={this.handleOnFormSubmit}>
         {this.props.upload.status}
-        {this.state.error}
+        {this.state.title}
         <input
           type='text'
           name='title'

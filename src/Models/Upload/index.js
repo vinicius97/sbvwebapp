@@ -13,13 +13,13 @@ export const upload = {
     }
   },
   effects: (dispatch) => ({
-    async uploadFile (payload, rootState) {
+    async uploadFile ({file, title}, rootState) {
       try {
 
         this.setStatus('Enviando')
         subscribeToUploadStatus((status) => this.setStatus(status))
 
-        const uploadResult = await uploadVideo(payload)
+        const uploadResult = await uploadVideo({file, title})
         const fileInfo = uploadResult.data
         await encodeVideo(fileInfo)
 

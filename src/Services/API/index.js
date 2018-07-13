@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const ENDPOINT = 'http://localhost:3000'
 
-export const uploadVideo = async (file, title) => {
+export const uploadVideo = async ({file, title}) => {
   try {
     const data = new FormData();
     data.append('video', file)
