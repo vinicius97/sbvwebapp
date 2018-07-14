@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import { listVideos } from '../../Services/API'
-import Uploader from '../../Components/Uploader'
+import { Grid } from '../../Components/Grid'
 
 import './index.scss'
 
@@ -22,21 +21,19 @@ export class Home extends Component{
 
   render(){
     const { list } = this.state
+    console.log(JSON.stringify(list))
     return(
-      <div>
-        <h1>Video Upload</h1>
-        <Uploader />
-
-        {list.map((item, index) => (
-          <div key={index}>
-            {item.title}
-            {item.url}
-            <Link to={`/video/${item._id}`}>
-              Play
-            </Link>
-          </div>
-        ))}
-      </div>
+      <section className={`home--container`}>
+        <header className={`home--container--header`}>
+          <h1 className={`home--container--header__logo`}>
+            Video Upload
+          </h1>
+        </header>
+        <div className={`home--container--content`}>
+          {/*<Uploader />*/}
+          <Grid list={list} />
+        </div>
+      </section>
     )
   }
 }
