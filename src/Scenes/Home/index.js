@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import Uploader from '../../Components/Uploader'
+import { Link } from 'react-router-dom'
 import { listVideos } from '../../Services/API'
+import Uploader from '../../Components/Uploader'
 
 import './index.scss'
 
@@ -30,6 +31,9 @@ export class Home extends Component{
           <div key={index}>
             {item.title}
             {item.url}
+            <Link to={`/video/${item._id}`}>
+              Play
+            </Link>
           </div>
         ))}
       </div>
