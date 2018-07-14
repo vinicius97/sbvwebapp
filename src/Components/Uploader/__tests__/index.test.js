@@ -15,7 +15,7 @@ describe('<Uploader />', () => {
 
   it('Validar estrutura HTML', () => {
     expect(wrapper.find('.uploader--form')).toHaveLength(1)
-    expect(wrapper.find('.uploader--form__input')).toHaveLength(1)
+    expect(wrapper.find('.uploader--form__input')).toHaveLength(2)
     expect(wrapper.find('.uploader--form__button')).toHaveLength(1)
   })
 

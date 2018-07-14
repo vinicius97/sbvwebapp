@@ -4,7 +4,13 @@ exports[`<Uploader /> Comparar snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Uploader />,
+  Symbol(enzyme.__unrendered__): <Uploader
+    upload={
+        Object {
+            "status": "",
+          }
+    }
+/>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -18,6 +24,15 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
+        "",
+        null,
+        <input
+          className="uploader--form__input"
+          name="title"
+          onKeyUp={[Function]}
+          placeholder="Título do vídeo"
+          type="text"
+/>,
         <input
           className="uploader--form__input"
           name="video"
@@ -36,6 +51,23 @@ ShallowWrapper {
     },
     "ref": null,
     "rendered": Array [
+      "",
+      null,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "uploader--form__input",
+          "name": "title",
+          "onKeyUp": [Function],
+          "placeholder": "Título do vídeo",
+          "type": "text",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
       Object {
         "instance": null,
         "key": undefined,
@@ -73,6 +105,15 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
+          "",
+          null,
+          <input
+            className="uploader--form__input"
+            name="title"
+            onKeyUp={[Function]}
+            placeholder="Título do vídeo"
+            type="text"
+/>,
           <input
             className="uploader--form__input"
             name="video"
@@ -91,6 +132,23 @@ ShallowWrapper {
       },
       "ref": null,
       "rendered": Array [
+        "",
+        null,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "uploader--form__input",
+            "name": "title",
+            "onKeyUp": [Function],
+            "placeholder": "Título do vídeo",
+            "type": "text",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
         Object {
           "instance": null,
           "key": undefined,
