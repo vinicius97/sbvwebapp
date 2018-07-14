@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 
 import './index.scss'
@@ -15,6 +15,7 @@ export class Uploader extends Component{
     error: '',
     file: null,
     title: null,
+    showForm: false
   }
 
   handleOnFormSubmit = (e) => {
@@ -22,11 +23,17 @@ export class Uploader extends Component{
 
     const { file, title } = this.state
     if(!file) {
-      this.handleError('Selecione um arquivo')
-    }else{
-      this.handleError('')
-      this.handleUpload(file, title)
+      this.handleError('Selecione um arquivo para envio')
+      return
     }
+    if(!title) {
+      this.handleError('Digite um título para o vídeo')
+      return
+    }
+
+    this.handleError('')
+    this.handleUpload(file, title)
+
   }
 
   handleError = (error) => {
@@ -34,10 +41,12 @@ export class Uploader extends Component{
   }
 
   handleOnChangeTitle = (e) => {
+    this.state.error && this.handleError('')
     this.setState({title: e.target.value})
   }
 
   handleOnChangeFile = (e) => {
+    this.state.error && this.handleError('')
     this.setState({file: e.target.files[0]})
   }
 
@@ -45,30 +54,58 @@ export class Uploader extends Component{
     this.props.uploadFile({file, title})
   }
 
+  handleShowForm = () => {
+    this.setState((s) => ({
+      showForm: !s.showForm
+    }))
+  }
+
   render() {
+
+    const { file } = this.state
+    const showForm = this.state.showForm
+    const formClass = showForm ? `uploader--form uploader--form--show` : `uploader--form`
+    const maskClass = showForm ? `uploader--form--mask` : `uploader--form--mask__hide`
+    const inputFileClass = file ?
+      (`uploader--form--input--file uploader--form--input--file--filled`)
+      :
+      (`uploader--form--input--file uploader--form--input--file--empty`)
     return (
-      <form className={`uploader--form`} onSubmit={this.handleOnFormSubmit}>
-        {this.props.upload.status}
-        {this.state.title}
-        <input
-          type='text'
-          name='title'
-          className={`uploader--form__input`}
-          onKeyUp={this.handleOnChangeTitle}
-          placeholder='Título do vídeo'/>
-
-        <input
-          className={`uploader--form__input`}
-          type='file'
-          name='video'
-          onChange={this.handleOnChangeFile} />
-
+      <Fragment>
         <button
           className={`uploader--form__button`}
+          onClick={this.handleShowForm}
           type='submit'>
-          Upload
+          Enviar vídeo
         </button>
-      </form>
+
+        <div className={maskClass} onClick={this.handleShowForm} />
+
+        <form className={formClass} onSubmit={this.handleOnFormSubmit}>
+          <div className={`uploader--form__error`}>
+            {this.state.error}
+          </div>
+
+          <input
+            type='text'
+            name='title'
+            className={`uploader--form--input__text`}
+            onKeyUp={this.handleOnChangeTitle}
+            placeholder='Título do vídeo'/>
+
+          <input
+            className={inputFileClass}
+            type='file'
+            name='video'
+            onChange={this.handleOnChangeFile} />
+
+          <button
+            className={`uploader--form__button`}
+            type='submit'>
+            Upload
+          </button>
+        </form>
+      </Fragment>
     )
   }
 }

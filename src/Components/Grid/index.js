@@ -1,11 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-
+import Uploader from '../Uploader'
 import './index.scss'
 
 const Grid = ({list}) => (
   <div className={`grid--container`}>
+    <Uploader />
+
     {list.map((item, index) => (
       <Link to={`/video/${item._id}`} className={`grid--container--item`} key={index}>
         <div className={`grid--container--item__title`}>

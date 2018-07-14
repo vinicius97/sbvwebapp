@@ -1,18 +1,159 @@
 .uploader--form{
-  display: flex;
-  flex-direction: column;
-  &__input{
-    width: 300px;
-    background: rgba(0,0,0,0.1);
-    border: none;
+
+  display: none;
+
+  &--show{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 30px;
+    max-width: 360px;
+    height: 330px;
+
+    background: #fff;
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 4;
+  }
+
+  &--mask{
+    background: rgba(102, 60, 171, 0.7);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 3;
+  }
+
+  &__error{
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    padding: 10px;
     margin: 10px auto;
-    padding: 20px;
+
+    background: rgb(255, 107, 107);
+    border: 1px solid red;
+    border-radius: 5px;
+
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+
+    &:empty{
+      display: none;
+    }
+  }
+
+  &__status{
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    margin: 10px auto;
+
+    background: rgba(255, 0, 0, 0.15);
+    border: 1px solid red;
+    border-radius: 5px;
+
+    color: red;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+
+    &:empty{
+      display: none;
+    }
+  }
+
+  &--input{
+    &__text{
+      background: rgba(177, 177, 177, 0.1);
+      border: none;
+
+      width: 100%;
+      margin: 10px auto;
+      padding: 10px;
+      outline: none;
+    }
+    &--file{
+      position: relative;
+      width: 100%;
+      height: 200px;
+
+      background: rgba(177, 177, 177, 0.1);
+      border: none;
+
+      margin: 10px auto;
+      padding: 10px;
+
+      @mixin before($message) {
+        content: $message;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 40px;
+        bottom: 0;
+
+        background: #f7f7f7;
+        color: #a0a0a0;
+        font-weight: bold;
+        font-size: 14px;
+        text-align: center;
+
+        padding: 20px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        cursor: pointer;
+      }
+
+      &--filled{
+        &:before{
+          @include before('Arraste para trocar ou clique aqui');
+        }
+      }
+      &--empty{
+        &:before{
+          @include before('Arraste um arquivo para cá ou clique aqui');
+        }
+      }
+    }
   }
   &__button{
-    border: none;
-    background: #46b56e;
-    color: #ffffff;
-    padding: 20px;
+    background: transparent;
+    color: #663cab;
     font-size: 20px;
+
+    padding: 0px 18px;
+    height: 40px;
+    margin: auto;
+
+    border: 2px solid #663cab;
+    border-radius: 20px;
+    outline: none;
+
+    transition: all ease-in-out 0.1s;
+
+    &:hover{
+      background: #7e53c3;
+      color: #ffffff;
+      cursor: pointer;
+
+      transition: all ease-in-out 0.1s;
+    }
   }
 }

@@ -30,7 +30,6 @@ export class Home extends Component{
           </h1>
         </header>
         <div className={`home--container--content`}>
-          {/*<Uploader />*/}
           <Grid list={list} />
         </div>
       </section>

@@ -2,6 +2,8 @@ import React from 'react'
 import Adapter from 'enzyme-adapter-react-16'
 import { configure, shallow } from 'enzyme'
 import { Link } from 'react-router-dom'
+
+import { Uploader } from '../../Uploader'
 import { Grid } from '../'
 
 configure({adapter: new Adapter()})
