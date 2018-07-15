@@ -1,6 +1,10 @@
 import openSocket from 'socket.io-client'
-const socket = openSocket('http://localhost:3000')
+const ENDPOINT = 'http://35.199.76.90:8080'
 
-export const subscribeToUploadStatus = (cb) => {
-  socket.on('upload status', status => cb(status))
+const socket = openSocket(ENDPOINT)
+
+export const subscribeToUploadStatus = (key, cb) => {
+  socket.on('upload status '+key, status => {
+    cb({key, status})
+  })
 }

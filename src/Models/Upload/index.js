@@ -14,12 +14,15 @@ export const upload = {
     updateList(state, payload){
       const list = state.list
       const updatedList = list.map((item)=> {
-        if(item.uid === payload.uid){
+        if(item.key === payload.key){
+          console.log('Entrou', item.key, payload.key)
           item = {...item, ...payload}
         }
 
         return item
       })
+
+      console.table(updatedList)
 
       return {...state, list: updatedList}
     }
@@ -27,26 +30,24 @@ export const upload = {
   effects: (dispatch) => ({
     async uploadFile ({file, title}, rootState) {
 
-      const uploadItem = {
-        uid: title+ Date.now(),
+      let uploadItem = {
+        key: Date.now(),
         title: title,
-        status: ''
+        status: 'Enviando'
       }
 
       try {
 
         this.addToList(uploadItem)
-        this.updateList({ uid: uploadItem.uid, status: 'Enviando' })
+        const fileInfo = await uploadVideo({ file, title, key: uploadItem.key })
 
-        subscribeToUploadStatus((status) => this.updateList({ uid: uploadItem.uid, status }))
+        subscribeToUploadStatus(uploadItem.key, (params) => this.updateList(params))
 
-        const fileInfo = await uploadVideo({file, title})
         const encodInfo = await encodeVideo(fileInfo)
-
-        this.updateList({ uid: uploadItem.uid, ...encodInfo })
+        this.updateList({ key: uploadItem.key, ...encodInfo })
 
       } catch (e) {
-        this.updateList({id: uploadItem.id, status: 'Falha'})
+        this.updateList({ key: uploadItem.key, status: 'Falha' })
         console.log(e)
       }
     }

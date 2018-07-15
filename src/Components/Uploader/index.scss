@@ -23,7 +23,7 @@
   }
 
   &--mask{
-    background: rgba(102, 60, 171, 0.7);
+    background: rgba(39, 172, 192, 0.69);
     position: absolute;
     left: 0;
     right: 0;
@@ -135,21 +135,21 @@
   }
   &__button{
     background: transparent;
-    color: #663cab;
+    color: #27acc0;
     font-size: 20px;
 
     padding: 0px 18px;
     height: 40px;
     margin: auto;
 
-    border: 2px solid #663cab;
+    border: 2px solid #27acc0;
     border-radius: 20px;
     outline: none;
 
     transition: all ease-in-out 0.1s;
 
     &:hover{
-      background: #7e53c3;
+      background: #27acc0;
       color: #ffffff;
       cursor: pointer;
 

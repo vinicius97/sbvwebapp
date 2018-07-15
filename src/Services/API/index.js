@@ -1,12 +1,13 @@
 import axios from 'axios'
 
-const ENDPOINT = 'http://localhost:3000'
+const ENDPOINT = 'http://35.199.76.90:8080'
 
-export const uploadVideo = async ({file, title}) => {
+export const uploadVideo = async ({ file, title, key }) => {
   try {
     const data = new FormData();
-    data.append('video', file)
     data.append('title', title)
+    data.append('key', key)
+    data.append('video', file)
 
     return await axios.post(`${ENDPOINT}/video/upload`, data)
       .then(function (response) {

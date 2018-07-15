@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
+
 import { listVideos } from '../../Services/API'
 import { Grid } from '../../Components/Grid'
+import { Header } from '../../Components/Header'
 
 import './index.scss'
-import {connect} from 'react-redux'
 
 export class Home extends Component{
 
@@ -43,11 +45,7 @@ export class Home extends Component{
     const { videoList, uploadList } = this.state
     return(
       <section className={`home--container`}>
-        <header className={`home--container--header`}>
-          <h1 className={`home--container--header__logo`}>
-            Video Upload
-          </h1>
-        </header>
+        <Header />
         <div className={`home--container--content`}>
           <Grid list={videoList} uploadList={uploadList} />
         </div>

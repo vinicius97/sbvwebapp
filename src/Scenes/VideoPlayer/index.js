@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 
+import { Header } from '../../Components/Header'
+
+import './index.scss'
+
 class VideoPlayer extends Component{
   componentDidMount(){
     const videoId = this.props.match.params.id
@@ -8,12 +12,16 @@ class VideoPlayer extends Component{
   }
 
   render(){
-    return <div>
-      Vídeo
-      <video src={this.props.player.video} controls>
-        Seu navegador não suporta o elemento <code>video</code>.
-      </video>
-    </div>
+    return (
+      <section>
+        <Header homePage={`/`} />
+        <div className={`video-player--container`}>
+          <video className={`video-player--container__player`} src={this.props.player.video} controls>
+            Seu navegador não suporta o elemento <code>video</code>.
+          </video>
+        </div>
+      </section>
+    )
   }
 }
 
