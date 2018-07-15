@@ -34,6 +34,12 @@ export class Uploader extends Component{
     this.handleError('')
     this.handleUpload(file, title)
 
+    this.setState({
+      error: '',
+      file: '',
+      title: '',
+      showForm: false
+    })
   }
 
   handleError = (error) => {
@@ -70,6 +76,7 @@ export class Uploader extends Component{
       (`uploader--form--input--file uploader--form--input--file--filled`)
       :
       (`uploader--form--input--file uploader--form--input--file--empty`)
+
     return (
       <Fragment>
         <button
@@ -81,40 +88,38 @@ export class Uploader extends Component{
 
         <div className={maskClass} onClick={this.handleShowForm} />
 
-        <form className={formClass} onSubmit={this.handleOnFormSubmit}>
-          <div className={`uploader--form__error`}>
-            {this.state.error}
-          </div>
+        {showForm && (
+          <form className={formClass} onSubmit={this.handleOnFormSubmit}>
+            <div className={`uploader--form__error`}>
+              {this.state.error}
+            </div>
 
-          <input
-            type='text'
-            name='title'
-            className={`uploader--form--input__text`}
-            onKeyUp={this.handleOnChangeTitle}
-            placeholder='Título do vídeo'/>
+            <input
+              type='text'
+              name='title'
+              className={`uploader--form--input__text`}
+              onKeyUp={this.handleOnChangeTitle}
+              placeholder='Título do vídeo'/>
 
-          <input
-            className={inputFileClass}
-            type='file'
-            name='video'
-            onChange={this.handleOnChangeFile} />
+            <input
+              className={inputFileClass}
+              type='file'
+              name='video'
+              onChange={this.handleOnChangeFile} />
 
-          <button
-            className={`uploader--form__button`}
-            type='submit'>
-            Upload
-          </button>
-        </form>
+            <button
+              className={`uploader--form__button`}
+              type='submit'>
+              Upload
+            </button>
+          </form>
+        )}
       </Fragment>
     )
   }
 }
 
-const mapState = state => ({
-  upload: {
-    status: state.upload.status
-  }
-})
+const mapState = state => ({})
 
 const mapDispatch = ({ upload: { uploadFile }}) => ({
   uploadFile

@@ -19,7 +19,7 @@ ShallowWrapper {
     "props": Object {
       "alt": "Carregando",
       "className": "loader--icon",
-      "src": "default.svg",
+      "src": "loader.svg",
     },
     "ref": null,
     "rendered": null,
@@ -33,7 +33,7 @@ ShallowWrapper {
       "props": Object {
         "alt": "Carregando",
         "className": "loader--icon",
-        "src": "default.svg",
+        "src": "loader.svg",
       },
       "ref": null,
       "rendered": null,

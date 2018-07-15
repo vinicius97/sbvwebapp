@@ -21,163 +21,107 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "host",
+    "nodeType": "function",
     "props": Object {
       "children": Array [
-        "",
-        null,
-        <input
-          className="uploader--form__input"
-          name="title"
-          onKeyUp={[Function]}
-          placeholder="Título do vídeo"
-          type="text"
-/>,
-        <input
-          className="uploader--form__input"
-          name="video"
-          onChange={[Function]}
-          type="file"
-/>,
         <button
           className="uploader--form__button"
+          onClick={[Function]}
           type="submit"
 >
-          Upload
+          Enviar vídeo
 </button>,
+        <div
+          className="uploader--form--mask__hide"
+          onClick={[Function]}
+/>,
+        false,
       ],
-      "className": "uploader--form",
-      "onSubmit": [Function],
     },
     "ref": null,
     "rendered": Array [
-      "",
-      null,
       Object {
         "instance": null,
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "className": "uploader--form__input",
-          "name": "title",
-          "onKeyUp": [Function],
-          "placeholder": "Título do vídeo",
-          "type": "text",
-        },
-        "ref": null,
-        "rendered": null,
-        "type": "input",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "className": "uploader--form__input",
-          "name": "video",
-          "onChange": [Function],
-          "type": "file",
-        },
-        "ref": null,
-        "rendered": null,
-        "type": "input",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "Upload",
+          "children": "Enviar vídeo",
           "className": "uploader--form__button",
+          "onClick": [Function],
           "type": "submit",
         },
         "ref": null,
-        "rendered": "Upload",
+        "rendered": "Enviar vídeo",
         "type": "button",
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "uploader--form--mask__hide",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+      false,
     ],
-    "type": "form",
+    "type": Symbol(react.fragment),
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "host",
+      "nodeType": "function",
       "props": Object {
         "children": Array [
-          "",
-          null,
-          <input
-            className="uploader--form__input"
-            name="title"
-            onKeyUp={[Function]}
-            placeholder="Título do vídeo"
-            type="text"
-/>,
-          <input
-            className="uploader--form__input"
-            name="video"
-            onChange={[Function]}
-            type="file"
-/>,
           <button
             className="uploader--form__button"
+            onClick={[Function]}
             type="submit"
 >
-            Upload
+            Enviar vídeo
 </button>,
+          <div
+            className="uploader--form--mask__hide"
+            onClick={[Function]}
+/>,
+          false,
         ],
-        "className": "uploader--form",
-        "onSubmit": [Function],
       },
       "ref": null,
       "rendered": Array [
-        "",
-        null,
         Object {
           "instance": null,
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "className": "uploader--form__input",
-            "name": "title",
-            "onKeyUp": [Function],
-            "placeholder": "Título do vídeo",
-            "type": "text",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": "input",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "className": "uploader--form__input",
-            "name": "video",
-            "onChange": [Function],
-            "type": "file",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": "input",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "Upload",
+            "children": "Enviar vídeo",
             "className": "uploader--form__button",
+            "onClick": [Function],
             "type": "submit",
           },
           "ref": null,
-          "rendered": "Upload",
+          "rendered": "Enviar vídeo",
           "type": "button",
         },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "uploader--form--mask__hide",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        false,
       ],
-      "type": "form",
+      "type": Symbol(react.fragment),
     },
   ],
   Symbol(enzyme.__options__): Object {

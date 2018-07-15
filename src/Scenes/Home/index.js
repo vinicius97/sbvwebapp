@@ -3,16 +3,36 @@ import { listVideos } from '../../Services/API'
 import { Grid } from '../../Components/Grid'
 
 import './index.scss'
+import {connect} from 'react-redux'
 
 export class Home extends Component{
 
   state = {
-    list: []
+    videoList: [],
+    uploadList: []
+  }
+
+  static defaultProps = {
+    upload: {
+      list: []
+    }
   }
 
   handleListVideos = async () => {
-    const videos = await listVideos()
-    this.setState({list: videos})
+    try{
+      const videos = await listVideos()
+      this.setState({videoList: videos.reverse()})
+    }catch (e) {
+      console.log(e)
+    }
+  }
+
+  componentDidUpdate(prevProps){
+    if(prevProps.upload.list !== this.props.upload.list){
+      this.setState({
+        uploadList: this.props.upload.list
+      })
+    }
   }
 
   componentDidMount(){
@@ -20,8 +40,7 @@ export class Home extends Component{
   }
 
   render(){
-    const { list } = this.state
-    console.log(JSON.stringify(list))
+    const { videoList, uploadList } = this.state
     return(
       <section className={`home--container`}>
         <header className={`home--container--header`}>
@@ -30,11 +49,19 @@ export class Home extends Component{
           </h1>
         </header>
         <div className={`home--container--content`}>
-          <Grid list={list} />
+          <Grid list={videoList} uploadList={uploadList} />
         </div>
       </section>
     )
   }
 }
 
-export default Home
+const mapState = state => ({
+  upload: {
+    list: state.upload.list
+  }
+})
+
+const mapDispatch = ({})
+
+export default connect(mapState, mapDispatch)(Home)

@@ -10,7 +10,7 @@ export const uploadVideo = async ({file, title}) => {
 
     return await axios.post(`${ENDPOINT}/video/upload`, data)
       .then(function (response) {
-        return response
+        return response.data
       })
       .catch(function (e) {
         return null
@@ -24,7 +24,7 @@ export const encodeVideo = async (data) => {
   try {
     return await axios.post(`${ENDPOINT}/video/encode`, data)
       .then(function (response) {
-        return response
+        return response.data
       })
       .catch(function (e) {
         return null
