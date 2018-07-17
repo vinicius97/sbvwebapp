@@ -7,7 +7,7 @@ import NotFound from '../NotFound'
 
 import './index.scss'
 
-class App extends Component {
+export class App extends Component {
   render() {
     return (
       <Switch>
