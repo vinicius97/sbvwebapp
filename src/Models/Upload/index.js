@@ -15,14 +15,11 @@ export const upload = {
       const list = state.list
       const updatedList = list.map((item)=> {
         if(item.key === payload.key){
-          console.log('Entrou', item.key, payload.key)
           item = {...item, ...payload}
         }
 
         return item
       })
-
-      console.table(updatedList)
 
       return {...state, list: updatedList}
     }
@@ -43,7 +40,7 @@ export const upload = {
 
         subscribeToUploadStatus(uploadItem.key, (params) => this.updateList(params))
 
-        const encodInfo = await encodeVideo(fileInfo)
+        const encodInfo = await encodeVideo({key: uploadItem.key, ...fileInfo})
         this.updateList({ key: uploadItem.key, ...encodInfo })
 
       } catch (e) {
