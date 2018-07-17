@@ -51,7 +51,7 @@ export class Home extends Component{
         </div>
       </section>
     )
-  }
+  }s
 }
 
 const mapState = state => ({
