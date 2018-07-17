@@ -10,3 +10,17 @@ Feito isso verifique se a aplicação está funcinando corretamente com o comand
 
 Selecione a opção executar todos os testes ou aperte 'a'
 
+### API e SOCKET
+
+Os serviços de api e socket por padrão consomem os endopoints da api em 
+> http://35.199.76.90:8080
+
+Certifique-se que deseja realmente consumir esta api e que tem permissão de CORS para o mesmo.
+Caso deseje executar consumindo de outro endpoint deverá alterar esta configuração no arquivo config.json no diretório raiz da aplicação.
+
+### Colocando em produção
+
+Para colocar a aplicação em funcionamento em um servidor é possível adotar duas abordagens:
+
+- Executar de maneira estática com o comando npm run build e fazendo o upload dos arquivos da pasta build para o webserver
+- Criando uma imagem docker a partir do Dockerfile no diretório raiz desta aplicação
