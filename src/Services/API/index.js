@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const ENDPOINT = 'http://35.199.76.90:8080'
+const ENDPOINT = require('../../config').endpoint
 
 export const uploadVideo = async ({ file, title, key }) => {
   try {
