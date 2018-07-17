@@ -10,6 +10,9 @@ Feito isso verifique se a aplicação está funcinando corretamente com o comand
 
 Selecione a opção executar todos os testes ou aperte 'a'
 
+Feito isso, validando que o funcionamento está correto execute o comando abaixo para rodar a aplicação localmente
+> npm start
+
 ### API e SOCKET
 
 Os serviços de api e socket por padrão consomem os endopoints da api em 
