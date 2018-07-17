@@ -5,7 +5,7 @@ import { Header } from '../../Components/Header'
 
 import './index.scss'
 
-class VideoPlayer extends Component{
+export class VideoPlayer extends Component{
   componentDidMount(){
     const videoId = this.props.match.params.id
     this.props.loadVideo({videoId})
